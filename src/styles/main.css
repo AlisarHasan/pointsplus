@@ -1,0 +1,33 @@
+.body, html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+main{
+  scrollbar-width: none;
+}
+.main::-webkit-scrollbar{
+  display: none;
+}
+.main-page {
+  font-family: Arial, sans-serif;
+  padding-left: 220px; 
+  display: flex;
+  height: 100vh;
+  box-sizing: border-box;
+  
+
+}
+
+
+@media (max-width: 768px ) {
+  .main-page{
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 60px;
+
+
+  }
+  
+}

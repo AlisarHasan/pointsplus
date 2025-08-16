@@ -1,0 +1,48 @@
+body{
+  padding: 0;
+  margin: 0;
+    perspective: 1000px;
+
+}
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #16161b, #0d101f, #100618);
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+h1 {
+  display: inline-block;
+  transform-origin: center;
+  animation: softFlipZoom 1.2s ease-out forwards;
+  font-size: 1rem;
+  color: #e5ebf1;
+  opacity: 0;
+}
+
+@keyframes softFlipZoom {
+  0% {
+    transform: scale(0.5) rotateY(-90deg);
+    font-size: 1rem;
+    opacity: 0;
+    text-shadow: 0 0 20px rgba(61, 103, 140, 0.9),
+                 0 0 30px rgba(75, 156, 226, 0.7);
+  }
+  60% {
+    transform: scale(1) rotateY(10deg);
+    font-size: 3.8rem;
+    opacity: 0.8;
+    text-shadow: 0 0 12px rgba(75, 156, 226, 0.5),
+  }
+  100% {
+    transform: scale(1) rotateY(0deg);
+    font-size: 4rem;
+    opacity: 0.9;
+    text-shadow: 0 0 8px rgba(74, 127, 173, 0.4);
+  }
+}

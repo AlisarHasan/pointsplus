@@ -1,0 +1,44 @@
+.feedback-form{
+    background:none;
+    border: none;
+    box-shadow: none; 
+    color: #393939;   
+}
+.feedback-select{
+    padding: 10px;
+    position: relative;
+    margin-left: 0 ;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    background-color: rgb(158, 205, 234);
+    bottom: 10px;
+}
+.feedback-input{
+    padding: 1rem;
+    font-size: 1rem;
+    border-color: #000;
+}
+.feedback-textarea{
+    padding: 1rem;
+    width: 70%;
+    height: 150px;
+    font-size: 1rem;
+    border-color: #000;
+}
+.feedback-file{
+    border-color: #000; 
+    font-size: 1rem;    
+    background-color: rgb(245, 248, 246);
+}
+
+.feedback-image-preview{
+    width: 100px;
+    height: 100px;
+}
+.feedback-submit{
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 5px;
+}
+    

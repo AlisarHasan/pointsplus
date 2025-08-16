@@ -1,0 +1,99 @@
+.add-task-form {
+  background: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #000;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+
+}
+
+.days{
+  margin: 0;
+  text-align: left;
+}
+
+.days-picker {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  margin-bottom: 16px;
+}
+
+.days-picker button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 7px;
+  background-color: #2c2c3e;
+  color: #bbb;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  user-select: none;
+  padding: 12px 0;
+}
+
+.days-picker button.active {
+  background-color: #48f6e5;
+  color: #1e1e2f;
+  font-weight: bold;
+}
+
+
+.reminder-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  
+}
+
+.reminder-section {
+  display: flex;
+  flex-direction: column;
+  
+}
+.reminder-section input {
+  margin: 7px 0;
+}
+
+.save-btn {
+  padding: 0.7rem;
+  background-color: #48f6e5;
+  color: #1e1e2f;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #36c9be;
+}
+select{
+  margin-top: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .days-picker {
+    flex-wrap: wrap;
+  }
+
+  .days-picker .day-label {
+    min-width: 90px;
+    text-align: center;
+  }
+}

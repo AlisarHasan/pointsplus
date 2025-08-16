@@ -1,0 +1,69 @@
+html, body{
+  padding: 0;
+  margin: 0;
+}
+.tasks-today-container {
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.time-section .time-title{
+background-color: #2461a1;
+padding: 10px;
+border-radius: 5px;
+text-align: center;
+font-size: 18px;
+width: 100%;
+}
+
+.add-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-title {
+  flex-grow: 1;
+  margin: 0 10px;
+  font-size: 20px;
+}
+@media (max-width: 768px ) {
+  .tasks-today-container {
+  padding: 20px 0;
+}
+
+}
