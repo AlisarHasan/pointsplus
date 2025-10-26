@@ -82,7 +82,6 @@ select{
   margin-top: 12px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .input-group {
     flex-direction: column;

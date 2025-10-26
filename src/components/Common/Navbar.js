@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaTasks, FaCoins, FaCog, FaMeteor } from "react-icons/fa";
+import { FaTasks, FaCoins, FaCog, FaMeteor, FaPlus, FaSignOutAlt } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../../styles/navbar.css";
 
 const Navbar = ({ onLogout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const username = localStorage.getItem("username") || "U";
+  const profileImage = localStorage.getItem("profileImage");
   const firstLetter = username.charAt(0).toUpperCase();
+
   const menuRef = useRef();
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,18 +31,23 @@ const Navbar = ({ onLogout }) => {
   return (
     <nav className="navbar" ref={menuRef}>
       <div className="nav-section">
-        <div
-          className="user-icon"
-          onClick={() => setMenuOpen(!menuOpen)}
-          title="My Account"
-        >
-          {firstLetter}
-        </div>
+       <div
+  className="user-icon"
+  onClick={() => setMenuOpen(!menuOpen)}
+  title="My Account"
+>
+  {profileImage ? (
+    <img src={profileImage} alt="User" className="nav-profile-image" />
+  ) : (
+    <span>{firstLetter}</span>
+  )}
+</div>
+
         {menuOpen && (
           <div className="user-menu">
             <button
               onClick={() => {
-                navigate("/account");
+               navigate("/account");
                 setMenuOpen(false);
               }}
             >
@@ -51,10 +58,8 @@ const Navbar = ({ onLogout }) => {
                 onLogout();
                 setMenuOpen(false);
               }}
-            >
-              Logout
-            </button>
-            <button onClick={() => navigate("/register")}>Register</button>
+            ><FaSignOutAlt size={10}/> Logout</button>
+            <button onClick={() => navigate("/register")}><FaPlus size={10}/> add account</button>
           </div>
         )}
       </div>

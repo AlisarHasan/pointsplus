@@ -40,7 +40,7 @@ const App = () => {
       {!isLoggedIn ? (
         <>
           <Route path="/login" element={<Login onLogin={handleLogin} goToRegister={goToRegister} />} />
-          <Route path="/register" element={<Register goToLogin={goToLogin} />} />
+          <Route path="/register" element={<Register onLogin={handleLogin} />} />
          <Route path="*" element={<Login onLogin={handleLogin} goToRegister={goToRegister} />} />
 
         </>

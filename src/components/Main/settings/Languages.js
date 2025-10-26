@@ -1,13 +1,13 @@
 import React from "react";
 
-const GeneralSettings = () => {
+const Languages = () => {
     return (
         <div className="g-settings">
-            <h2>General Settings</h2>
+            <h2>Languages Settings</h2>
             
 
         </div>
 
     );
 };
-export default GeneralSettings;
+export default Languages;

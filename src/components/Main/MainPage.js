@@ -9,8 +9,10 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import EditTask from "./EditTask";
 import SettingsPage from "./SettingsPage";
 import NotificationsSettings from "./settings/NotificationsSettings";
-import GeneralSettings from "./settings/GeneralSettings";
 import Feedback from "./settings/Feedback";
+import AppearanceSettings from "./settings/Appearance-settings.js";
+import AccountPage from "./AccountPage.js";
+import ChangePasswordPage from "../Common/ChangePasswordPage.js";
 
 
 const MainPage = ({ onLogout }) => {
@@ -32,10 +34,10 @@ const MainPage = ({ onLogout }) => {
         currentPage={currentPage}
       />
 
-      <main 
+      <main
         style={{
           flexGrow: 1,//حتى يأخذ مساحة الشاشة بعد النافبار
-          padding: "1.5rem",
+          padding: "1.2rem 2rem",
           overflow: "auto",
           height: "100%",
           boxSizing: "border-box",
@@ -44,6 +46,8 @@ const MainPage = ({ onLogout }) => {
         }}
       >
         <Routes>
+  <Route path="/account" element={<AccountPage />} />
+  <Route path="/change-password" element={<ChangePasswordPage />} />
   <Route path="/tasks" element={<TasksToday />} />
   <Route path="/add-task" element={<AddTask />} />
   <Route path="/tasks-list" element={<TasksList />} /> 
@@ -51,7 +55,7 @@ const MainPage = ({ onLogout }) => {
   <Route path="/points" element={<Points />} />
   <Route path="/settings-page" element={<SettingsPage />} />
   <Route path="/notifications-settings" element={<NotificationsSettings />} />
-  <Route path="/general-settings" element={<GeneralSettings />} />
+  <Route path="/appearance-settings" element={<AppearanceSettings />} />
   <Route path="/feedback" element={<Feedback />} />
   <Route path="/account" />
 </Routes>

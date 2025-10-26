@@ -7,7 +7,7 @@ export default function Notification({ message, onClose }) {
   return (
     <div className="notification">
       <p>{message}</p>
-      <button onClick={onClose}>X</button>
+      <button onClick={onClose}>close</button>
     </div>
   );
 }

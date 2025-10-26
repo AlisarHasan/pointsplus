@@ -1,0 +1,80 @@
+.appearance-container{
+  font-size: 16px;
+}
+.theme-selector {
+  direction: rtl;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+
+.checkbox-item input[type="radio"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+
+.checkbox-item label {
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-color, #333);
+  user-select: none;
+}
+.custom-info p{
+  text-align: start;
+  margin: 0;
+}
+.custom-section button{
+  width: 220px;
+  background-color: #99acd3;
+  border-radius: 22px;
+  margin-bottom: 14px;
+}
+
+.slider-container {
+    max-width: 250px;
+}
+
+.font-slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 8px;
+    background: #afd3f1;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.font-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: var(--shadow);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+

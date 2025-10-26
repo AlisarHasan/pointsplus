@@ -1,3 +1,6 @@
+.n-settings{
+  font-size: 16px;
+}
 .toggle-container {
   display: flex;
   align-items: center;

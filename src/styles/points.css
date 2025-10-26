@@ -53,7 +53,6 @@
 }
 
 
-/* React Calendar */
 .react-calendar {
   width: 100%;
   border: 1px solid #000;
@@ -85,9 +84,6 @@
   background-color: #92b3eb !important;
 }
 
-
-
-/* Days of week header */
 .react-calendarmonth-viewdays__weekday {
   padding: 6px 0;
   font-size: 0.85rem;
@@ -98,7 +94,6 @@
   border-bottom: 1px solid #e3e8ff;
 }
 
-/* Each date tile */
 .react-calendar__tile {
   display: flex;
   box-sizing: border-box;
@@ -127,7 +122,6 @@
   font-weight: 700;
 }
 
-/* Selected date */
 .react-calendar__tile--active {
   background: linear-gradient(135deg, #4a90e2, #357ABD);
   color: #fff !important;
@@ -138,7 +132,6 @@
   transition: all 0.4s ease;
 }
 
-/* Today's date */
 .react-calendar__tile--now {
   border: 2px solid #37669b;
   font-weight: 700;
@@ -149,7 +142,6 @@
   border-radius: 12px;
 }
 
-/* Stats card */
 .stats-card {
   width: 80%;
   padding: 30px 15px;

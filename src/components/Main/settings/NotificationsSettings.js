@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../../styles/notification.css"
+import "../../../styles/notification.css";
 
 const NotificationsSettings = () => {
   const [enabled, setEnabled] = useState(
@@ -12,6 +12,10 @@ const NotificationsSettings = () => {
   useEffect(() => {
     localStorage.setItem("notificationsEnabled", enabled.toString());
     localStorage.setItem("notificationType", notificationType);
+
+    window.dispatchEvent(
+      new CustomEvent("notifications-changed", { detail: { enabled } })
+    );
   }, [enabled, notificationType]);
 
   const handleToggle = () => {
@@ -38,12 +42,25 @@ const NotificationsSettings = () => {
           <span className="slider round"></span>
         </label>
         <span className="toggle-label">
-          {enabled ? "Activited" : "Not Activited"}
+          {enabled ? "Activated" : "Not Activated"}
         </span>
       </div>
 
+
       <div className="reminder-section">
-        <label className="reminder-label">Reminder Type</label>
+        <label className="reminder-label">Due Date Reminders </label>
+        <select >
+          <option>Exactly when due (Default)</option>
+          <option>5 minutes before</option>
+          <option>15 minutes before</option>
+          <option>1 hour before</option>
+          <option>1 day before</option>
+          <option>Custom</option>
+        </select>
+      </div>
+
+      <div className="reminder-section">
+        <label className="reminder-label">Reminder Methods</label>
         <select
           value={notificationType}
           onChange={(e) => setNotificationType(e.target.value)}
@@ -52,8 +69,22 @@ const NotificationsSettings = () => {
           <option value="push">Instant notification</option>
           <option value="email">Email</option>
           <option value="inApp">In-app only</option>
+          <option value="inApp">SMS notification</option>
+
         </select>
       </div>
+
+      <div className="reminder-section">
+        <label className="reminder-label">Notification sound </label>
+        <select >
+          <option value="delay">Delay</option>
+          <option value="archery">Archery</option>
+          <option value="night-sky">Night Sky</option>
+          <option value="harp">Harp</option>
+        </select>
+      </div>
+
+
     </div>
   );
 };

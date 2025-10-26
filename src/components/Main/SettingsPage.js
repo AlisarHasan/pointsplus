@@ -10,10 +10,11 @@ const SettingsPage = () => {
         <div className="settings-container">
             <ul className="settings-list" >
                 <li><button onClick={() => navigate("/notifications-settings")}>Notificaions</button></li>
-                <li><button>Themes</button></li>
+                <li><button onClick={() => navigate("/appearance-settings")}>Appearance & Theme</button></li>
                 <li><button>Language</button></li>
-                <li><button onClick={() => navigate("/general-settings")} >General Settings</button></li>
+                <li><button>Integrations & Connections</button></li>
                 <li><button>Share With Friends</button></li>
+                <li><button>About App</button></li>
                 <li><button onClick={() => navigate("/feedback")}>Feedback & Notes</button></li>
             </ul>
         </div>

@@ -48,9 +48,16 @@ const Login = ({ onLogin, goToRegister }) => {
       return;
     }
 
-    // نجاح تسجيل الدخول
     localStorage.setItem("username", account.username);
     localStorage.setItem("email", account.email);
+    const now = new Date();
+const history = JSON.parse(localStorage.getItem("loginHistory")) || [];
+history.push({
+  date: now.toLocaleString(),
+  device: navigator.userAgent,
+});
+localStorage.setItem("loginHistory", JSON.stringify(history));
+
     onLogin();
   };
 

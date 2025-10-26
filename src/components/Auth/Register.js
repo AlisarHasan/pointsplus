@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/login.css";
 
-const Register = ({ goToLogin }) => {
+const Register = ({ goToLogin, onLogin }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
 
@@ -44,55 +46,74 @@ const Register = ({ goToLogin }) => {
     }
 
     // إضافة حساب جديد
-    accounts.push({ username, email, password });
+    const newAccount = { username, email, password };
+    accounts.push(newAccount);
     localStorage.setItem("accounts", JSON.stringify(accounts));
+    // تسجيل أول دخول للمستخدم الجديد
+const now = new Date();
+const history = JSON.parse(localStorage.getItem("loginHistory")) || [];
+history.push({
+  date: now.toLocaleString(),
+  device: navigator.userAgent,
+});
+localStorage.setItem("loginHistory", JSON.stringify(history));
+
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("email", email);
+    localStorage.setItem("isLoggedIn", "true");
 
     setError("");
-    setSuccess("The account has been created successfully. you can now log in");
-    setUsername("");
-    setEmail("");
-    setPassword("");
+    setSuccess("The account has been created and you are now logged in.");
+
+    if (typeof onLogin === "function") {
+      onLogin(); 
+      navigate("/main");
+    }
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>
-      <div className="form-section">
+        <div className="form-section">
+          {error && <div className="error-message">{error}</div>}
+          {success && <div className="success-message">{success}</div>}
 
-        {error && <div className="error-message">{error}</div>}
-        {success && <div className="success-message">{success}</div>}
+          <input
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
 
-        <input
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+          <input
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <input
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <button type="submit">create an account</button>
 
-        <button type="submit">create an account</button>
-      <p>
-        have an account?{" "}
-        <button className="link-button" onClick={goToLogin}>
-          login
-        </button>
-      </p>
-      </div>
-            </form>
-
+          <p>
+            have an account?{" "}
+            <button
+              type="button"
+              className="link-button"
+              onClick={goToLogin}
+            >
+              login
+            </button>
+          </p>
+        </div>
+      </form>
     </div>
   );
 };

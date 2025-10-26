@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useCallback } from "react";
 import { FaBell, FaPlus } from "react-icons/fa";
 import "../../styles/tasksToday.css";
@@ -69,10 +70,16 @@ const TasksToday = () => {
 
     setFilteredTasks(grouped);
   }, [todayName, todayDateStr, currentTime, showNotification]);
+useEffect(() => {
+  loadTasks(); // تشغيل أولي
 
-  useEffect(() => {
+  const interval = setInterval(() => {
     loadTasks();
-  }, [loadTasks]);
+  }, 60000); // كل 60 ثانية
+
+  return () => clearInterval(interval);
+}, [loadTasks]);
+
 
   const handleToggleDone = (taskId) => {
     const allTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -160,4 +167,4 @@ const TasksToday = () => {
   );
 };
 
-export default TasksToday;
+export default TasksToday;  
